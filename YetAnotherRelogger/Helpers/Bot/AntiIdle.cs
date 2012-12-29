@@ -91,7 +91,7 @@ namespace YetAnotherRelogger.Helpers.Bot
                     }
                     else if (General.DateSubtract(StartDelay) > 0)
                     {
-                        if (FailedStartDelay > 3 && General.DateSubtract(TimeFailedStartDelay) > 600)
+                        if (FailedStartDelay > 5 || (FailedStartDelay > 3 && General.DateSubtract(TimeFailedStartDelay) > 600))
                         {
                             State = IdleState.Terminate;
                             break;
@@ -227,7 +227,7 @@ namespace YetAnotherRelogger.Helpers.Bot
             Stats.Reset();
 
             ResetCoinage();
-            
+
             if (all)
             {
                 IsInitialized = false;
